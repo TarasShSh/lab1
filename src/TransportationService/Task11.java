@@ -1,4 +1,4 @@
-package Viznyk;
+package TransportationService;
 
 /*
 Реалізувати ієрархію класів системи "Таксі". Перевизначити equals() i

@@ -7,15 +7,15 @@ public class Task2 {
 
         final String[] speech = {"Вітаю!", "На моїй новій", "Еем..", "виставці?", "У будь-якому разі ..Ее, ось мій..."};
 
-        Print(speech);
-        System.out.println("Символів знайдено: " + SearchCount(speech, symbol));
+        printArray(speech);
+        System.out.println("Символів знайдено: " + searchCount(speech, symbol));
     }
-            public static void Print (final String[] stringArray){
+            public static void printArray (final String[] stringArray){
                 for (int i = 0; i < stringArray.length; i++)
                     System.out.println(stringArray[i]);
             }
 
-            public static int SearchCount(final String[] stringArray, final char chr){
+            public static int searchCount(final String[] stringArray, final char chr){
                 int k = 0;
                 for(int i = 0; i < stringArray.length; i++){
                     for(int j = 0; j < stringArray[i].length(); j++){

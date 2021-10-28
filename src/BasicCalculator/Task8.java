@@ -1,4 +1,4 @@
-package Rakhivnytsia;
+package BasicCalculator;
 /*
 Реалізувати клас CustomDouble з двома полями: типу int(ціла частина) та
 double (дробова частина). Перевизначити операції суми, різниці,
@@ -7,40 +7,47 @@ double (дробова частина). Перевизначити операц�
 public class Task8 {
 
     public static class CustomDouble {
-        int tsila;
-        double drobova;
+        int integer;
+        double fraction;
 
         public CustomDouble() {
             this(0, 0.0);
         }
 
-        public CustomDouble(final int tsila, final double drobova) {
-            setTsila(tsila);
-            setDrobova(drobova);
+        public CustomDouble(final int integer, final double fraction) {
+            setInteger(integer);
+            setFraction(fraction);
         }
 
-        public int getTsila() {
-            return tsila;
+        public int getInteger() {
+            return integer;
         }
 
-        public double getDrobova() {
-            return drobova;
+        public double getFraction() {
+            return fraction;
+        }
+        public int setInteger() {
+            return integer;
         }
 
-        public void setTsila(int tsila) {
-            this.tsila = Math.abs(tsila);
+        public double setFraction() {
+            return fraction;
         }
 
-        public void setDrobova(double drobova) {
-            this.drobova = drobova;
+        public void setInteger(int integer) {
+            this.integer = Math.abs(integer);
+        }
+
+        public void setFraction(double fraction) {
+            this.fraction = fraction;
         }
 
         public CustomDouble suma(final CustomDouble a) {
             final CustomDouble rezultat = new CustomDouble();
             final double sum = this.toDouble() + a.toDouble();
 
-            rezultat.tsila = (int) sum;
-            rezultat.drobova = sum % 1;
+            rezultat.integer = (int) sum;
+            rezultat.fraction = sum % 1;
 
             return rezultat;
         }
@@ -50,8 +57,8 @@ public class Task8 {
 
             final double minus = this.toDouble() - a.toDouble();
 
-            rezultat.tsila = (int) minus;
-            rezultat.drobova = minus % 1;
+            rezultat.integer = (int) minus;
+            rezultat.fraction = minus % 1;
 
             return rezultat;
         }
@@ -81,12 +88,12 @@ public class Task8 {
             if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
             CustomDouble chyslo = (CustomDouble) o;
-            return this.tsila == chyslo.tsila && this.drobova == chyslo.drobova;
+            return this.integer == chyslo.integer && this.fraction == chyslo.fraction;
         }
 
         @Override
         public int hashCode() {
-            return 31 * this.tsila + 31 * Double.hashCode(this.drobova);
+            return 31 * this.integer + 31 * Double.hashCode(this.fraction);
         }
 
         @Override
@@ -96,10 +103,10 @@ public class Task8 {
 
         public double toDouble() {
             double chyslo;
-                if (tsila < 0 && drobova < 0){}
-                else if (tsila < 0){ drobova *= -1;}
-                else if(drobova < 0){ tsila *= -1;}
-                return this.tsila + this.drobova;
+                if (integer < 0 && fraction < 0){}
+                else if (integer < 0){ fraction *= -1;}
+                else if(fraction < 0){ integer *= -1;}
+                return this.integer + this.fraction;
             }
     }
 }

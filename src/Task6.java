@@ -4,22 +4,20 @@
 import java.util.Scanner;
 public class Task6 {
     public static void main(String[] args) {
-            int m, n, p, q, sum = 0, c, d, k;
-
+            int m, n, p, q, sum = 0;
             Scanner in = new Scanner(System.in);
             System.out.println("К-сть рядків першої матриці:");
             m = in.nextInt();
             System.out.println("К-сть стовпців першої матриці:");
             n = in.nextInt();
-
             int[][] first = new int[m][n];
-
             System.out.println("Елементи першої матриці:");
 
-            for (c = 0; c < m; c++)
-                for (d = 0; d < n; d++)
-                    first[c][d] = in.nextInt();
-
+            for (int i = 0; i < m; i++){
+                for (int j = 0; j < n; j++) {
+                    first[i][j] = in.nextInt();
+                }
+            }
             System.out.println("К-сть рядків другої матриці:");
             p = in.nextInt();
             System.out.println("К-сть стовпців другої матриці:");
@@ -33,27 +31,28 @@ public class Task6 {
 
                 System.out.println("Елементи другої матриці:");
 
-                for (c = 0; c < p; c++)
-                    for (d = 0; d < q; d++)
-                        second[c][d] = in.nextInt();
-
-                for (c = 0; c < m; c++) {
-                    for (d = 0; d < q; d++) {
-                        for (k = 0; k < p; k++) {
-                            sum = sum + first[c][k] * second[k][d];
+                for (int i = 0; i < p; i++) {
+                    for (int j = 0; j < q; j++) {
+                        second[i][j] = in.nextInt();
+                    }
+                }
+                for (int i = 0; i < m; i++) {
+                    for (int j = 0; j < q; j++) {
+                        for (int k = 0; k < p; k++) {
+                            sum = sum + first[i][k] * second[k][j];
                         }
 
-                        multiply[c][d] = sum;
+                        multiply[i][j] = sum;
                         sum = 0;
                     }
                 }
 
                 System.out.println("Добуток:");
 
-                for (c = 0; c < m; c++) {
-                    for (d = 0; d < q; d++)
-                        System.out.print(multiply[c][d] + "\t");
-
+                for (int i = 0; i < m; i++) {
+                    for (int j = 0; j < q; j++) {
+                        System.out.print(multiply[i][j] + "\t");
+                    }
                     System.out.print("\n");
                 }
             }
